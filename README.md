@@ -1,35 +1,90 @@
-# AskDB – AI-Powered Natural Language Interface for SQL Databases
+# 💬 AskDB: AI-Powered Natural Language Interface for SQL Databases
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Python](https://img.shields.io/badge/Python-3.10%2B-yellow.svg)
-![Flask](https://img.shields.io/badge/Backend-Flask-green)
-![Frontend](https://img.shields.io/badge/Frontend-HTML%2FCSS%2FJS-blue)
-![LLM](https://img.shields.io/badge/LLM-Groq%20API%20%26%20LlamaIndex-purple)
+AskDB is a chatbot-style web application that allows users to query relational databases using natural language—no SQL skills required! Powered by Large Language Models (LLMs) like LLaMA-3 and built on a secure, scalable backend, AskDB bridges the gap between humans and databases using natural language.
 
-## 🧠 Overview
 
-AskDB is an AI-powered chatbot web interface that allows users to interact with SQL databases using natural language. It converts user questions into executable SQL queries and returns results in natural language or visual formats—without requiring SQL expertise.
+---
 
-## ✨ Features
+## 🚀 Key Features
 
-- ✅ Natural language to SQL query translation using LLMs (Groq + LlamaIndex)
-- 🔐 Secure backend with input validation and rate limiting
-- ⚡ Real-time responses via Flask and Fetch API
-- 📊 Dynamic result visualization using Chart.js and PyVis
-- 🧩 Modular structure with support for PostgreSQL/MySQL/SQLite
+- 🔍 **Natural Language to SQL Translation** using LLaMA-3 (via Groq API)
+- 🗃️ **Dynamic Schema Detection** using SQLAlchemy
+- 🌐 **Chatbot Interface** with real-time feedback
+- 📊 **Interactive Results** with table and chart views (Chart.js, PyVis)
+- 🔐 **Rate Limiting & Security** with Flask-Limiter and Cerberus
+- 🧠 **Embedding Support** via Ollama & `nomic-embed-text` model
+- 📦 **Modular Flask Backend** and responsive HTML/CSS/JS Frontend
 
-## 🚀 Tech Stack
+---
 
-- **Frontend**: HTML5, CSS3, Tailwind CSS, JavaScript
-- **Backend**: Flask, SQLAlchemy, Cerberus, Flask-Limiter
-- **AI/NLP**: LlamaIndex, Groq API
-- **Visualization**: Chart.js, PyVis
-- **Database**: PostgreSQL / MySQL / SQLite
-- **Deployment**: Docker, AWS / GCP / Heroku
+## 🧰 Tech Stack
 
-## ⚙️ Setup Instructions
+| Layer       | Technologies Used |
+|-------------|-------------------|
+| **Backend** | Flask, SQLAlchemy, python-dotenv, Cerberus, Flask-Limiter |
+| **LLM**     | Llama Index, Groq API (`llama3-8b-8192`), LangChain |
+| **Embeddings** | Ollama + `nomic-embed-text` |
+| **Frontend**| HTML5, Tailwind CSS, Vanilla JavaScript |
+| **Database**| SQLite / PostgreSQL / MySQL |
+| **Visualization** | Chart.js, PyVis |
+| **DevOps**  | Docker, Postman, pytest |
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/askdb-ai.git
-   cd askdb-ai
+---
+
+## 📁 Project Structure
+
+```
+├── config/
+│ └── config.yml # YAML configuration for server, models, etc.
+├── resources/
+│ ├── data/ # Folder containing table CSV files
+│ └── Database.db # SQLite DB generated from the data
+├── src/
+│ ├── init.py
+│ ├── pipeline_modules.py # Query construction modules
+│ ├── pipeline.py # Core LLM + SQL workflow
+│ ├── prompt.py # Prompt templates
+│ ├── run_api.py # LLM & DB interaction API logic
+│ ├── settings.py # LlamaIndex + embedding setup
+│ └── utility.py # Helpers like DB creation, schema loaders
+├── static/ # CSS, JS, and client assets
+├── templates/
+│ └── index.html # Chatbot frontend
+├── .env # Stores GROQ_API_KEY etc.
+├── .gitignore
+├── app.py # Flask app entry point
+├── LICENSE
+├── README.md
+└── requirements.txt
+```
+---
+
+## 🧪 Sample Query Flow
+
+- **User Input:** "Show me the names of all employees in the Sales department"
+- **Backend:** Prompt passed to Groq's LLaMA-3 model
+- **LLM Response:** SQL generated → SELECT name FROM employees WHERE department = 'Sales';
+- **Execution:** SQLAlchemy executes the query on Database.db
+- **Response:** Human-readable output + visual representation returned to UI
+
+---
+
+## 🌟 Future Enhancements
+- **🎙️ Voice-based queries**
+- **🔐 Role-based access and authentication**
+- **📊 Auto visualization of SQL result sets**
+- **🧵 Multi-turn context-aware chat**
+- **📚 NoSQL and cloud DB integration**
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/avinashgour/askdb.git
+cd askdb
+```
+
+---
