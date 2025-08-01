@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AskDB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="top-header">
+        <div class="logo-title">
+            <!-- <img src="{{ url_for('static', filename='img/bot-icon.png') }}" alt="Logo" class="logo"> -->
+            <span>🤖 AskDB</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="chat-area" id="chatArea">
+            <div class="intro">
+                <h1>Welcome to AskDB</h1>
+                <p>Ask me anything about your DataBase!</p>
+            </div>
+        </div>
+
+        <div class="input-bar">
+            <input type="text" id="queryInput" placeholder="What can I help you with today?" />
+            <button id="submitButton">Ask</button>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
